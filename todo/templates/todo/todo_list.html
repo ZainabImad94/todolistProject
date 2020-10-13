@@ -1,0 +1,27 @@
+{% extends 'todo/base.html' %}
+{% block content %}
+    {% for task in tasks %}
+        <tbody>
+        {% if task.done %}
+            <tr>
+                <td  colspan="2"><a class="titleW" href="{% if user.is_authenticated %}{% url 'undone' task.pk %}{% endif %}" ><strike> {{ task.title }}</strike></a></td>
+                <td class="text-left">{{ task.description }}</td>
+                {% if user.is_authenticated %}
+                    <td ><a class="btn btn-primary" href="{% url 'task_edit' pk=task.pk %}">Edit</a></td>
+                    <td ><a class="btn btn-danger " href="{% url 'task_delete' pk=task.pk %}">Delete</a></td>
+                {% endif %}
+            </tr>
+
+        {% else %}
+            <tr>
+                <td colspan="2"><a href="{% if user.is_authenticated %}{% url 'done' task.pk %} {% endif %}" >{{ task.title }}</a></td>
+                <td class="text-left">{{ task.description }}</td>
+                {% if user.is_authenticated %}
+                    <td ><a class="btn btn-primary" href="{% url 'task_edit' pk=task.pk %}">Edit</a></td>
+                    <td ><a class="btn btn-danger " href="{% url 'task_delete' pk=task.pk %}">Delete</a></td>
+                {% endif %}
+            </tr>
+        {% endif %}
+        </tbody>
+    {% endfor %}
+{% endblock %}

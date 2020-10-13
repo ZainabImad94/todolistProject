@@ -1,0 +1,19 @@
+body{
+    font-size: x-large;
+}
+
+td{
+    padding: 10px;
+}
+table td a{
+    display: block;
+    background-color: #eee;
+    padding: 10px;
+}
+a:hover{
+    text-decoration: none;
+}
+.titleW{
+    padding: 10px;
+    background-color: #DDD;
+}
