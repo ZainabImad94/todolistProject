@@ -1,0 +1,40 @@
+{% extends 'todo/base.html' %}
+{% block content %}
+    {% for task in tasks %}
+        <tbody>
+<!--        If the task is completed-->
+        {% if task.done %}
+            <tr>
+                <td colspan="2">
+<!--                    This url is to make the task UNCOMPLETED to make it UNDONE-->
+                    <a class="titleStrike" href="{% if user.is_authenticated %}{% url 'undone' task.pk %}{% endif %}" >
+                        <input type="checkbox">
+                        <strike> {{ task.title }}</strike>
+                    </a>
+                </td>
+                <td  class="text-left">{{ task.description }}</td>
+                {% if user.is_authenticated %}
+                    <td class="text-right" ><a class="btn btn-warning" href="{% url 'task_edit' pk=task.pk %}">Edit <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+                    <td class="text-right" ><a class="btn btn-danger " href="{% url 'task_delete' pk=task.pk %}">Delete <i class="fa fa-trash-o" aria-hidden="true"></i> </a></td>
+                {% endif %}
+            </tr>
+
+        {% else %}
+            <tr>
+                <td colspan="2">
+<!--                    This url is to make the task COMPLETED to make it DONE-->
+                    <a href="{% if user.is_authenticated %}{% url 'done' task.pk %} {% endif %}" >
+                                            <input type="checkbox">
+                        {{ task.title }}
+                    </a>
+                </td>
+                <td class="text-left">{{ task.description }}</td>
+                {% if user.is_authenticated %}
+                    <td class="text-right" ><a class="btn btn-warning" href="{% url 'task_edit' pk=task.pk %}">Edit <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+                    <td class="text-right" ><a class="btn btn-danger " href="{% url 'task_delete' pk=task.pk %}">Delete <i class="fa fa-trash-o" aria-hidden="true"></i> </a></td>
+                {% endif %}
+            </tr>
+        {% endif %}
+        </tbody>
+    {% endfor %}
+{% endblock %}

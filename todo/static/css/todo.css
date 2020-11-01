@@ -1,0 +1,24 @@
+body {
+background-image: url("../../static/images/pexels-bongkarn-thanyakij-3609112 (1).jpg");
+background-opacity: 7px;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+.asteriskField {
+    display: none;
+}
+table tr{
+border-radius:9px;
+}
+table a{
+    display: block;
+    background-color: #eee;
+    padding: 10px;
+}
+a:hover{
+    text-decoration: none;
+}
+.titleStrike{
+    padding: 10px;
+    background-color: #DDD;
+}
