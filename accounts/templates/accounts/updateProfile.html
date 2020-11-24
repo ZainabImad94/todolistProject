@@ -1,0 +1,49 @@
+{% extends 'todo/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'css/updateProfile.css' %}">
+{% endblock %}
+{% block breadcrumb %}
+<li class="breadcrumb-item text-danger">
+   <a class="text-danger" href="{% url 'setting_profile' %}"><h6>Edit Profile</h6></a>
+</li>
+{% endblock %}
+{% block content %}
+<div class="container">
+{% for message in messages %}
+    <div class="alert alert-primary alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        {{ message }}
+    </div>
+    {% endfor %}
+</div>
+<form method="POST" class="post-form" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="container">
+    <div class="row justify-content-center">
+        <img src="{% if user.profile.profile_pic %} {{ user.profile.profile_pic.url }} {% else %} {% static 'images/profile-photo.png' %} {% endif %}"
+             height="250" width="250" class="border rounded-circle">
+    </div>
+    <div class="row mt-3">
+        <div class="col-6">
+            {{ u_form.first_name|as_crispy_field }}
+        </div>
+        <div class="col-6">
+            {{ u_form.last_name|as_crispy_field }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            {{ u_form.username|as_crispy_field }}
+        </div>
+        <div class="col-6">
+            {{ u_form.email|as_crispy_field }}
+        </div>
+    </div>
+    {% crispy p_form p_form.helper %}
+    </div>
+</form>
+{% endblock %}

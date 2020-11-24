@@ -1,0 +1,59 @@
+{% for todo in task %}
+{% if todo.done %}
+<tr class="bg-light">
+    <td>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input type="checkbox" value="" class="form-check-input"  name="done" data-id="{{todo.id}}" checked>
+                <a class="title limit-ch"  href="{% url 'task_detail' todo.id %}"  style="display: block"><strike>{{ todo.title }}</strike></a>
+            </label>
+        </div>
+    </td>
+    <td  class="limit-ch-desc">{{ todo.description }}</td>
+    <td>
+        <a class="text-primary task_view"  data-toggle="modal" data-url="{% url 'task_view' todo.id %}" data-target="#modal">
+            <h3><i class="fa fa-eye text-primary text-lg-right" aria-hidden="true"></i></h3>
+        </a>
+    </td>
+    <td>
+        <a class="text-warning task_edit"  data-toggle="modal" data-url="{% url 'task_edit' todo.id %}" data-target="#modal">
+            <h3><i class="fa fa-pencil-square-o text-warning text-lg-right" aria-hidden="true"></i></h3>
+        </a>
+    </td>
+    <td>
+        <a class="text-danger task_delete" data-toggle="model" data-url="{% url 'task_delete' todo.id %}" data-target="#model">
+            <h3><i class="fa fa-trash-o text-danger text-lg-left" aria-hidden="true"></i></h3>
+        </a>
+    </td>
+</tr>
+{% else %}
+<tr>
+    <td>
+        <div class="form-check">
+            <label class=" form-check-label ">
+                <input type="checkbox" class="form-check-input" value=""  name="undone" data-id="{{todo.id}}">
+                <a class="title limit-ch" href="{% url 'task_detail' todo.id %}"  style="display: block">{{ todo.title }}</a>
+            </label>
+        </div>
+    </td>
+    <td>
+        <p class="limit-ch-desc">{{ todo.description }}</p>
+    </td>
+    <td>
+        <a class="text-primary task_view"  data-toggle="modal" data-url="{% url 'task_view' todo.id %}" data-target="#modal">
+            <h3><i class="fa fa-eye text-primary text-lg-right" aria-hidden="true"></i></h3>
+        </a>
+    </td>
+    <td>
+        <a class="text-warning task_edit"  data-toggle="modal" data-url="{% url 'task_edit' todo.id %}" data-target="#modal" >
+            <h3><i class="fa fa-pencil-square-o text-warning text-lg-right" aria-hidden="true"></i></h3>
+        </a>
+    </td>
+    <td>
+        <a class="text-danger task_delete" data-toggle="model" data-url="{% url 'task_delete' todo.id %}" data-target="#model">
+            <h3><i class="fa fa-trash-o text-danger text-lg-left" aria-hidden="true"></i></h3>
+        </a>
+    </td>
+</tr>
+{% endif %}
+{% endfor %}

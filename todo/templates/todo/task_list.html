@@ -1,0 +1,34 @@
+{% extends 'todo/base.html' %}
+{% block content %}
+<div class="container-fluid">
+    {% for message in messages %}
+    {% if message.tags == 'error' %}
+    <div class="alert alert-danger alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        {{ message }}
+    </div>
+    {% else %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        {{ message }}
+    </div>
+    {% endif %}
+{% endfor %}
+
+    {% if task %}
+    <table class="table table-hover" id="table-task">
+        <tbody>
+        {% include 'todo/partial_task_list.html' %}
+        </tbody>
+    </table>
+    {% else %}
+    <div>
+    <h3>Hello, <strong>{{ user.username }}</strong> you don't have tasks !</h3>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

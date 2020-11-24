@@ -1,24 +1,168 @@
-body {
-background-image: url("../../static/images/pexels-bongkarn-thanyakij-3609112 (1).jpg");
-background-opacity: 7px;
-  background-attachment: fixed;
-  background-size: 100% 100%;
-}
-.asteriskField {
-    display: none;
-}
-table tr{
-border-radius:9px;
-}
-table a{
-    display: block;
-    background-color: #eee;
-    padding: 10px;
+
+.navbar-brand{
+    font-family: 'Pacifico', cursive;
 }
 a:hover{
     text-decoration: none;
 }
-.titleStrike{
-    padding: 10px;
-    background-color: #DDD;
+
+#sidebar {
+  min-width: 300px;
+  max-width: 300px;
+  background: #000000;
+  color: #fff;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s; }
+  #sidebar.active {
+    margin-left: -300px; }
+  #sidebar .logo {
+    display: block;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto; }
+    #sidebar .logo span {
+      display: block; }
+  #sidebar ul.components {
+
+    padding: 0; }
+  #sidebar ul li {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 16px; }
+    #sidebar ul li > ul {
+      margin-left: 10px;
+    }
+      #sidebar ul li > ul li {
+        font-size: 14px;
+     }
+    #sidebar ul li a {
+      padding: 10px 10px;
+
+      color: rgba(255, 255, 255, 0.8); }
+      #sidebar ul li a:hover {
+        color: #dc3545; }
+    #sidebar ul li.active > a {
+      background: transparent;
+      color: #dc3545; }
+
+@media (max-width: 991.98px) {
+  #sidebarCollapse span {
+    display: none; } }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0; }
+
+.sr-only-focusable:active, .sr-only-focusable:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  clip: auto;
+  white-space: normal; }
+a[data-toggle="collapse"] {
+  position: relative; }
+
+.dropdown-toggle::after {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%); }
+.wrapper {
+  width: 100%; }
+
+.d-flex {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important; }
+
+.align-items-stretch {
+  -webkit-box-align: stretch !important;
+  -ms-flex-align: stretch !important;
+  align-items: stretch !important; }
+
+#content {
+  width: 100%;
+  padding: 0;
+  min-height: 100vh;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s; }
+@media (min-width: 400px) {
+    .limit-ch-desc{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 0px ;}
+    .limit-ch{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 20ch;
+}
+}
+@media (min-width: 768px) {
+  .limit-ch-desc{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 20ch;}
+    .limit-ch{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 30ch;
+}
+}
+@media (min-width: 992px) {
+    .limit-ch-desc{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 40ch;
+    }
+    .limit-ch{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 40ch;
+}
+}
+
+@media (min-width: 1400px) {
+    .limit-ch-desc{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 60ch;
+
+    }
+    .limit-ch{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 50ch;
+}
+}
+.fa-twitter{
+    color: #1DA1F2;
+}
+.fa-facebook{
+    color: #4267B2;
+}
+.bio{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
 }

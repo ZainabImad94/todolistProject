@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/fontawesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/accounts.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <nav class="navbar navbar-expand-sm navbar-light bk-light border-bottom shadow rounded" style="">
+        <div class="navbar-brand">
+         <a href="#"><h1>Todolist</h1></a>
+        </div>
+        <button class="navbar-toggler mb-3" data-toggle="collapse" data-target="#navbarMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMenu">
+            <ul class="navbar-nav mr-auto mt-1">
+
+            </ul>
+            <form class="form-inline mr-5 my-lg-0">
+                {% if request.get_full_path == '/' %}
+                <a href="{% url 'registration' %}" class="btn btn-dark ml-2">Sign up</a>
+                {% elif  request.get_full_path == '/register' %}
+                <a href="{% url 'login' %}" class="btn btn-outline-danger">Log in</a>
+                {% endif %}
+            </form>
+        </div>
+    </nav>
+</div>
+<div class="container">
+    <div class="row justify-content-center">
+{% block content %}
+{% endblock %}
+    </div>
+</div>
+<script src="{% static 'js/popper.js' %}" ></script>
+<script src="{% static 'js/bootstrap.js' %}" ></script>
+<script src="{% static 'js/main.js' %}" ></script>
+</body>
+</html>

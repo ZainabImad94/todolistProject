@@ -1,0 +1,34 @@
+{% extends 'todo/base.html' %}
+{% load static %}
+
+{% block breadcrumb %}
+<li class="breadcrumb-item text-danger">
+   <a class="text-danger" href="#"><h6>View Task</h6></a>
+</li>
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="card text-left">
+            <div class="card-header">
+                <h5 class="card-title">{{ task.title }}</h5>
+            </div>
+            {% if task.description %}
+            <div class="card-body">
+                <h6 class="card-subtitle mb-2 text-muted">Task description</h6>
+                <p class="card-text">{{ task.description|linebreaksbr }}</p>
+            </div>
+            {% endif %}
+            <div class="card-footer">
+                {% if task.done %}
+                The Tak is Completed, yay!
+                {% else %}
+                Not completed, Harry up and make it complete !
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

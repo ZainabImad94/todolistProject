@@ -1,0 +1,26 @@
+{% extends 'accounts/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+<div class="col-lg-4 col-md-6 col-sm-8">
+  <div class="card mt-5">
+    <div class="card-body">
+      <h3 class="card-title">Log in</h3>
+      <form method="post" novalidate>
+        {% csrf_token %}
+          {{ form|crispy }}
+        <button type="submit" class="btn btn-danger btn-block">Log in</button>
+      </form>
+    </div>
+    <div class="card-footer text-muted text-center">
+      New to Todo List ? <a href="{% url 'registration' %}">Sign up</a>
+    </div>
+  </div>
+  <div class="text-center py-2 fix-m">
+    <small>
+      <a href="{% url 'password_reset' %}" class="text-muted">Forgot your password?</a>
+    </small>
+  </div>
+</div>
+
+{% endblock %}
